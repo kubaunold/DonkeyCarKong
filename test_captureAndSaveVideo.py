@@ -12,7 +12,7 @@ out = cv2.VideoWriter('your_video.avi', fourcc, 20.0, size)
 while(True):
     _, frame = cap.read()
     frame = imutils.rotate(frame, 180)
-    cv2.imshow('Recording...', frame)
+    # cv2.imshow('Recording...', frame)
     out.write(frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
