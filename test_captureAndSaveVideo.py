@@ -1,4 +1,6 @@
 import cv2
+import imutils
+
 
 cap = cv2.VideoCapture(0)
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
@@ -9,7 +11,8 @@ out = cv2.VideoWriter('your_video.avi', fourcc, 20.0, size)
 
 while(True):
     _, frame = cap.read()
-#    cv2.imshow('Recording...', frame)
+    frame = imutils.rotate(frame, 180)
+    cv2.imshow('Recording...', frame)
     out.write(frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
